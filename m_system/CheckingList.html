@@ -10,8 +10,8 @@
     <meta name="author" content="">
 
     <title>RIL Internal Management System</title>
-	
-	
+
+
     <script src="js/_db_sql.js"></script>
     <!-- Bootstrap Core CSS -->
     <link href="css/bootstrap.min.css" rel="stylesheet">
@@ -73,8 +73,8 @@
                         <a href="index.html"><i class="fa fa-fw fa-dashboard"></i> Dashboard</a>
                     </li>
 
-					
-					
+
+
                     <li>
                         <a href="javascript:;" data-toggle="collapse" data-target="#demo"><i class="fa fa-fw fa-desktop"></i> Management System <i class="fa fa-fw fa-caret-down"></i></a>
                         <ul id="demo" class="collapse">
@@ -113,24 +113,88 @@
 
 				<div class="form-group">
 				<label>Select Chip</label>
-				<select class="form-control" id="listbox_chip" onchange="showchipdata(listbox_chip.value);">	
-					
+				<select class="form-control" id="listbox_chip" onchange="showchipdata(listbox_chip.value);">
+
 				</select>
-				</div>	
-				
+				</div>
+
 				<div class="form-group">
-					<label>KEYWORD</label>
+					<label>Keyword</label>
 					<input class="form-control" id="KEYWORD_text" placeholder="Please Enter Search Condition. EX: a17 or a56">
 				</div>
-												
-				
+
+				<div class="btn pull-left">
 				<button type="submit" class="btn btn-default " onClick="showchipdata(listbox_chip.value);">Search</button>
                 <button type="reset" class="btn btn-default" onClick="fill();">Reset</button>
-				<br><br>
-				
-				
-				
-            <!--// Finished Project Checking List Summary     SHOW 查詢結果表格-->
+				</div>
+
+
+				<!-- Large modal -->
+		        <div class="btn pull-right">
+                    <button type="reset" class="btn btn-default" data-toggle="modal" data-target="#ChooseTemplete-dialog" data-cloneissue="" onClick="showchipdata2();">Create Checking List</button>
+                </div>
+
+				<br><br><br>
+				<!--//////////////////////////////Modal/////////////////////////////////-->
+				  <!-- Modal -->
+				  <div class="modal fade" id="ChooseTemplete-dialog" role="dialog">
+					<div class="modal-dialog modal-md">
+					  <div class="modal-content">
+						<div class="modal-header">
+						  <button type="button" class="close" data-dismiss="modal" >&times;</button>
+						  <h4 class="modal-title">Choose Templete</h4>
+						</div>
+						<div class="modal-body">
+<!------------------------------------------------------------------------------------------//-->
+							            <!--// Finished Project Checking List Summary SHOW result of search-->
+							<div class="row" >
+									<div class="col-lg-12">
+										<div class="panel panel-primary">
+											<div class="panel-heading">
+												<h3 class="panel-title"><i class="fa fa-bar-chart-o"></i> Project List</h3>
+											</div>
+											<div class="panel-body">
+
+											<!--//-->
+											<div class="col-lg-12">
+												<div class="table-responsive">
+													<table class="table table-bordered table-hover table-striped">
+														<thead>
+															<tr>
+																<th>Templete List</th>
+															</tr>
+														</thead>
+														<tbody id="fill_Templetelist">
+														<td align="center" colspan="8"><img src="/test3/js/pic/loading.gif"/>
+														</tbody>
+													</table>
+												</div>
+											</div>
+											<!--//-->
+
+											</div>
+										</div>
+									</div>
+							</div>
+		<!---------------------------------------------------------------------------------------------------------------->
+
+
+						</div>
+						<div class="modal-footer">
+						  <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+						</div>
+					  </div>
+					</div>
+				  </div>
+				<!--/////////////////////////////////////////////////////////////////////-->
+
+
+
+
+
+
+
+            <!--// Finished Project Checking List Summary SHOW result of search-->
 			<div class="row">
                     <div class="col-lg-12">
                         <div class="panel panel-primary">
@@ -140,7 +204,7 @@
                             <div class="panel-body">
 
 							<!--//-->
-							<div class="col-lg-12">								
+							<div class="col-lg-12">
 								<div class="table-responsive">
 									<table class="table table-bordered table-hover table-striped">
 										<thead>
@@ -152,20 +216,20 @@
 												<th>Last Update Date</th>
 											</tr>
 										</thead>
-										<tbody id="filter_datalist">	
+										<tbody id="filter_datalist">
 										<td align="center" colspan="8"><img src="/test3/js/pic/loading.gif"/>
 										</tbody>
 									</table>
 								</div>
 							</div>
 							<!--//-->
-							
+
                             </div>
                         </div>
                     </div>
-            </div>	
-				
-				
+            </div>
+
+
                 <!-- /.row -->
 
             </div>
@@ -188,9 +252,9 @@
     <script src="js/plugins/morris/morris.min.js"></script>
     <script src="js/plugins/morris/morris-data.js"></script>
 
-	
-	
-	
+
+
+
 
 </body>
 
