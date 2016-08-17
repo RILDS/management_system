@@ -1,15 +1,15 @@
 <?php
-
-class DB 
+require_once("DB_config.php");
+class DB
 {
     var $_dbConn = 0;
     var $_queryResource = 0;
-    
+
     function DB()
     {
         //do nothing
     }
-    
+
     function connect_db($host, $user, $pwd, $dbname)
     {
         $dbConn = mysql_connect($host, $user, $pwd);
@@ -21,37 +21,55 @@ class DB
         $this->_dbConn = $dbConn;
         return true;
     }
-    //Close
+
     function close_db()
     {
         mysql_close($this->_dbConn);
         return true;
     }
-  
+
     function query($sql)
     {
         if (! $queryResource = mysql_query($sql, $this->_dbConn))
             die ("MySQL Query Error");
         $this->_queryResource = $queryResource;
-        return $queryResource;        
+        return $queryResource;
     }
-    
-    /** Get array return by MySQL */
+
+    //Get array return by MySQL
     function fetch_array()
     {
         return mysql_fetch_array($this->_queryResource, MYSQL_ASSOC);
     }
-    
+
     function get_num_rows()
     {
         return mysql_num_rows($this->_queryResource);
     }
 
-    /** Get the cuurent id */    
+    //Get the cuurent id
     function get_insert_id()
     {
         return mysql_insert_id($this->_dbConn);
-    } 
-    
+    }
+
+    function print_json($host, $user, $pwd, $dbname, $sql)
+    {
+        //setup a connection and do MySQL query
+        $this->connect_db($host, $user, $pwd, $dbname);
+        $this->query($sql);
+
+        //transfer MySQL query to array and print it with json type
+        $result = array();
+        while($line = $this->fetch_array())
+        {
+            $result[] = $line;
+        }
+
+        //close the db connection
+        $this->close_db();
+
+        echo json_encode($result);
+    }
 }
 ?>

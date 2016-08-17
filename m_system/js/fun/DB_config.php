@@ -1,5 +1,5 @@
 <?php
-    global $_DB;	
+    global $_DB;
     $_DB['host'] = "10.8.57.80";
     $_DB['username'] = "root";
     $_DB['password'] = "123";

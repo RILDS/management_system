@@ -79,7 +79,6 @@ function showchipdata2() {
                 var j = 0;
                 j += i + 1;
                 html += "<tr><td><a href=\"CheckingList_Create.html?temp=" + data._templete_name + "\">" + data._templete_name + "</a></td></tr>";
-
             });
             $("#fill_Templetelist").html(html);
         }
